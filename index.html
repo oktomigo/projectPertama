@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Sederhana</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .calculator {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .calculator input[type="number"], .calculator select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    .calculator button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    .calculator button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Kalkulator Sederhana</h2>
+        <form id="calculatorForm">
+            <input type="number" id="num1" name="num1" placeholder="Masukkan angka pertama" required><br>
+            <input type="number" id="num2" name="num2" placeholder="Masukkan angka kedua" required><br>
+            <select id="operator" name="operator" required>
+                <option value="">Pilih operator</option>
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select><br>
+            <button type="button" onclick="calculate()">Hitung</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operator = document.getElementById('operator').value;
+            var result;
+
+            switch (operator) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Pilih operator yang valid";
+                    break;
+            }
+
+            document.getElementById('result').innerHTML = "Hasil: " + result;
+        }
+    </script>
+</body>
+</html>
